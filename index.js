@@ -24,8 +24,8 @@ function removeTask(index) {
   displayTasks();
 }
 function editTask(index) {
-  const newTask = prompt("Enter a New Task");
-  if (newTask == null) {
+  const newTask = prompt("Enter a New Task", "").trim();
+  if (newTask == "") {
     return;
   }
   tasksInArray[index] = newTask.trim();
@@ -39,9 +39,9 @@ function displayTasks() {
   tasksInArray.forEach((task, index) => {
     const listItem = document.createElement("li");
     listItem.classList.add("task-item");
-    const taskspan = document.createElement("span");
-    taskspan.textContent = task;
-    listItem.appendChild(taskspan);
+    const taskSpan = document.createElement("span");
+    taskSpan.textContent = task;
+    listItem.appendChild(taskSpan);
     const editBtn = document.createElement("button");
     editBtn.classList.add("edit-btn");
     editBtn.textContent = "Edit";
