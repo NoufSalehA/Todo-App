@@ -7,8 +7,8 @@ This project aims to build a to do list application by applying HTML, CSS and Ja
 In this level, the application includes the following features:
 
 1. Adding a Todo:
-   - Display an input field where users can enter a new todo item.
-   - Include an "Add" button to add the entered todo item to the list.
+   - Display an input field where users can enter a new todo item.   Done
+   - Include an "Add" button to add the entered todo item to the list.    Done
 
 2. Rendering Todo List:
    - Render the list of todos on the screen.
