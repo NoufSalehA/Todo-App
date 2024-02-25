@@ -13,10 +13,14 @@ function addTasks() {
   tasksInArray.push(task); ///added to array
   displayTasks();
   todoEnter.value = "";
+  localStorage.setItem("tasks", JSON.stringify(tasksInArray));
+  displayTasks();
 }
 
 function removeTask(index) {
   tasksInArray.splice(index, 1);
+  displayTasks();
+  localStorage.setItem("tasks", JSON.stringify(tasksInArray));
   displayTasks();
 }
 function editTask(index) {
@@ -25,6 +29,8 @@ function editTask(index) {
     return;
   }
   tasksInArray[index] = newTask.trim();
+  displayTasks();
+  localStorage.setItem("tasks", JSON.stringify(tasksInArray));
   displayTasks();
 }
 
@@ -52,8 +58,11 @@ function displayTasks() {
     listItem.appendChild(deleteBtn);
     tasks.appendChild(listItem);
   });
-  counter.textContent = "Counter :" + tasksInArray.length;
+  counter.textContent = "Counter:" + tasksInArray.length;
 }
-tasksInArray.push("Feeding my cat");
-tasksInArray.push("Gym");
+displayTasks();
+const storedTask = localStorage.getItem("tasks");
+if (storedTask) {
+  tasksInArray.push(...JSON.parse(storedTask));
+}
 displayTasks();
