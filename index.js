@@ -60,7 +60,7 @@ function displayTasks() {
   });
   counter.textContent = "Counter:" + tasksInArray.length;
 }
-displayTasks();
+
 const storedTask = localStorage.getItem("tasks");
 if (storedTask) {
   tasksInArray.push(...JSON.parse(storedTask));
