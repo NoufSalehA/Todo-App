@@ -23,6 +23,7 @@ function removeTask(index) {
   localStorage.setItem("tasks", JSON.stringify(tasksInArray));
   displayTasks();
 }
+
 function editTask(index) {
   const newTask = prompt("Enter a New Task", "").trim();
   if (newTask == "") {
@@ -39,15 +40,22 @@ function displayTasks() {
   tasksInArray.forEach((task, index) => {
     const listItem = document.createElement("li");
     listItem.classList.add("task-item");
+
+    const checkbox = document.createElement("input");
+    checkbox.setAttribute("type", "checkbox");
+    listItem.appendChild(checkbox);
+
     const taskSpan = document.createElement("span");
     taskSpan.textContent = task;
     listItem.appendChild(taskSpan);
+
     const editBtn = document.createElement("button");
     editBtn.classList.add("edit-btn");
     editBtn.textContent = "Edit";
     editBtn.addEventListener("click", () => {
       editTask(index);
     });
+
     listItem.appendChild(editBtn);
     const deleteBtn = document.createElement("button");
     deleteBtn.classList.add("delete-btn");
